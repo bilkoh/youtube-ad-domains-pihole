@@ -10,4 +10,4 @@
 ##### Or you can import it:
 I commit the adlist I generate on my own daily to this repo.
 
-You can import it into your pihole through the web interface. Goto Group Management Menu > Adlist page. And add this url () as a new adlist.
+You can import it into your pihole through the web interface. Goto Group Management Menu > Adlist page. And add this url `https://raw.githubusercontent.com/bilkoh/youtube-ad-domains-pihole/main/youtube-ad-domains.txt` as a new adlist.
