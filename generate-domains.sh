@@ -15,11 +15,13 @@ SUBLIST3R=/opt/Sublist3r/sublist3r.py
 # PATH where http://pi.hole is hosted
 PIHOLE_WWW_PATH=/var/www/html
 
+# pwd of current script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 $SUBLIST3R -d googlevideo.com -n -o /tmp/domains.txt
-cat /tmp/domains.txt >> youtube-ad-domains.txt
-echo "$(grep  '^r' youtube-ad-domains.txt | grep -v '^redirector' | sort | uniq)" > youtube-ad-domains.txt
-cp youtube-ad-domains.txt $PIHOLE_WWW_PATH/youtube-ad-domains.txt
+cat /tmp/domains.txt >> $DIR/youtube-ad-domains.txt
+echo "$(grep  '^r' $DIR/youtube-ad-domains.txt | grep -v '^redirector' | sort | uniq)" > $DIR/youtube-ad-domains.txt
+cp $DIR/youtube-ad-domains.txt $PIHOLE_WWW_PATH/youtube-ad-domains.txt
 
 pihole -g
 pihole restartdns
-
